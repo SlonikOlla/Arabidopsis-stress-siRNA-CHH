@@ -7,4 +7,4 @@ authors:
     given-names: "Igor"
 version: "1.0.0"
 repository-code: "https://github.com/SlonikOlla/Arabidopsis-stress-siRNA-CHH"
-abstract: "Analysis code, metadata, compact derived results, and figures for a multi-stress genome-scale analysis of spatial correspondence between 24-nt siRNA changes and CHH methylation changes in Arabidopsis thaliana."
+abstract: "Analysis code, metadata, compact derived results, and reproducibility documentation for a multi-stress genome-scale analysis of spatial correspondence between 24-nt siRNA changes and CHH methylation changes in Arabidopsis thaliana."
