@@ -1,0 +1,9 @@
+stress	assay	accession	material	age_stage	treatment_time	replicates	cross_assay_note
+phosphate	sRNA	GSE17741	root	17-d seedlings	5 d +/-Pi	public libraries	age/treatment differ from methylome
+phosphate	CHH methylome	GSE72770	root	7-d seedlings	+/-Pi	2/condition	age/treatment differ from sRNA
+drought	sRNA	GSE26356	shoots	4-week adult	drought to 40-50% RWC	1/condition	genotype/protocol differ
+drought	CHH methylome	GSE94075	whole rosette	4 weeks	9 d water deprivation	3/condition	genotype/protocol differ
+heat	sRNA	GSE239836	seedlings	7 d	1 h, 37C	3/condition	age/tissue/temp/time differ
+heat	CHH methylome	GSE139941	leaves	21 d	6/12/24 h, 42C	3/condition/time	age/tissue/temp/time differ
+pathogen	sRNA	GSE19694	leaves	4 weeks	Pst DC3000, 6/14 h	2 mock + 1 infected library/time	time differs from methylome
+pathogen	CHH methylome	GSE128768	leaves	4 weeks	Pst DC3000, ~72 h	1 deposited sample/condition; pooled material reported	time differs from sRNA
