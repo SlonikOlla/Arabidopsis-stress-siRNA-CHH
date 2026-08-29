@@ -37,15 +37,16 @@ No raw sequencing files are redistributed in this repository.
 8. Positive-control analyses using RdDM-related genetic perturbations.
 9. Genomic-context enrichment analysis.
 10. TE superfamily, family, and element-level analyses.
-11. Representative-locus visualization and sensitivity analyses.
+11. Representative-locus and sensitivity analyses.
 
 ## Repository organization
 
-- `metadata/` dataset accession and design information.
-- `scripts/` analysis scripts and execution notes.
-- `results/summary/` compact derived result tables suitable for version control.
-- `figures/` manuscript figures generated from the final analysis.
-- `docs/` reproducibility and interpretation notes.
+- `metadata/` — dataset accession and design information.
+- `scripts/` — transparent analysis code and execution/provenance notes.
+- `results/` — compact derived summaries and retained-output provenance.
+- `docs/` — reproducibility and interpretation notes.
+
+Publication figures and the manuscript are intentionally not duplicated in this repository.
 
 ## Important reproducibility conventions
 
@@ -61,12 +62,16 @@ No raw sequencing files are redistributed in this repository.
 
 ## Software
 
-The final manuscript reports use of Cutadapt 4.7, Bowtie, SAMtools, BEDTools, Python, pandas, NumPy, SciPy, and Matplotlib. Exact versions should be taken from the archived analysis environment or retained command logs where available; versions are not guessed when they cannot be recovered.
+The manuscript analysis used Cutadapt 4.7, Bowtie, SAMtools, BEDTools, Python, pandas, NumPy, SciPy, and Matplotlib. Versions that could not be recovered from the retained environment or command logs are intentionally not guessed.
+
+## Code provenance
+
+The accessible retained project archive includes final outputs, command logs, software/mapping parameters, and analysis summaries, but not every original workstation script. Where an original script was unavailable, any transparent reimplementation is explicitly labelled as a reference implementation rather than being presented as the historical executed source. See `scripts/README.md` and `results/retained_output_provenance.md`.
 
 ## Citation
 
-Please cite the associated manuscript and the archived release of this repository. A manuscript-specific Zenodo DOI should be added to `CITATION.cff` after the new repository release is archived.
+Please cite the associated manuscript and the archived release of this repository. The Zenodo DOI for the v1.0.0 archive will be added after Zenodo has processed the GitHub release.
 
 ## Licensing
 
-Code is intended for release under the MIT License. Derived documentation and summary metadata may be reused with attribution. Original public sequencing and methylation datasets remain subject to the terms of their source repositories and publications.
+Code is released under the MIT License. Derived documentation and summary metadata may be reused with attribution. Original public sequencing and methylation datasets remain subject to the terms of their source repositories and publications.
