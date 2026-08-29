@@ -1,32 +1,14 @@
-# Derived results included for manuscript reproducibility
+# Derived results and provenance
 
-This directory is reserved for compact derived outputs used directly in the manuscript and sensitivity analyses. Large raw sequencing files are not redistributed.
+This directory contains compact derived material used to document and reproduce the manuscript analysis. Large raw sequencing and methylation files are not redistributed; source data should be retrieved from their original public repositories using the accessions in `../metadata/datasets.tsv`.
 
-## Final result files to include before v1.0.0
+## Included
 
-Primary statistical outputs:
+- `summary/Figure1_global_summary_source.tsv` — compact global/window-level summary retained from the analysis workspace.
+- `retained_output_provenance.md` — provenance record for final statistical outputs and analysis parameters recovered from retained command/output logs.
 
-- `all_stresses_extreme_tail_EXACT_RANK_FINAL.tsv` — definitive 100-bp/500-bp exact-rank extreme-tail analysis across all stresses.
-- `all_stresses_CHH_to_24_EXACT_RANK_20x20_10k.tsv` — 20×20 baseline-stratification sensitivity analysis.
-- `all_stresses_concordant_5pct_annotation_EXACT_RANK_FINAL.tsv` — primary genomic-context analysis.
-- `all_stresses_concordant_annotation_1pct_10pct_EXACT_RANK_10k.tsv` — 1%/10% tail sensitivity analysis.
-- `all_stresses_CHH5pct_TE50pct_overlap_sensitivity.tsv` — TE-overlap sensitivity analysis.
-- `all_stresses_CHH5pct_TE_superfamily_baseline_permutation_10k.tsv` — TE-superfamily analysis.
-- `all_stresses_CHH5pct_TE_FAMILY_baseline_permutation_10k.tsv` — TE-family analysis.
-- `all_stresses_TE_ELEMENT_LEVEL_length_bias_sensitivity.tsv` — TE-element-level sensitivity analysis.
+## Final statistical analyses documented in the retained archive
 
-Representative-locus outputs:
+The retained project records document the definitive exact-rank extreme-tail analysis, the 20×20 baseline sensitivity analysis, genomic-context analyses, TE-overlap sensitivity, TE-superfamily analysis, TE-family analysis, and TE-element-level sensitivity analysis. Their output names, test counts, key parameters, and recovered summary results are recorded in `retained_output_provenance.md`.
 
-- `top1pct_joint_concordant_windows.tsv`
-- `recurrent_joint_concordant_clusters.tsv`
-- `exact_100_500bp_recurrent_hits.tsv`
-- `locus_plot_candidate_shortlist.tsv`
-
-Dataset-specific frozen summaries, where retained:
-
-- phosphate sentinel-filtered extreme-tail output.
-- drought final consensus summary.
-- heat final consensus summary.
-- pathogen joint 100-bp and 500-bp summaries.
-
-The repository release should not claim that a listed output is available until the exact retained file has been copied here and verified. Files are not reconstructed from manuscript text or rounded values.
+Exact machine-readable historical output tables are not reconstructed from rounded manuscript values when the original table is unavailable in the accessible archive. This distinction is intentional. The repository therefore separates directly retained machine-readable data from provenance recovered from logs and from explicitly labelled reference implementations.
