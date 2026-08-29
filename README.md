@@ -1,73 +1,72 @@
-# Stress-specific local correspondence between 24-nt siRNAs and CHH methylation in Arabidopsis
+# Weak genome-wide correspondence masks stress-specific local 24-nt siRNA–CHH methylation relationships in Arabidopsis
 
-Reproducibility repository for the manuscript **“Weak genome-wide correspondence masks stress-specific local 24-nt siRNA–CHH methylation relationships in Arabidopsis.”**
+Reproducibility repository for the manuscript examining spatial correspondence between stress-associated changes in 24-nucleotide small interfering RNAs (24-nt siRNAs) and CHH DNA methylation in *Arabidopsis thaliana*.
 
-## Study question and novelty
+## Study overview
 
-RNA-directed DNA methylation (RdDM) provides a well-established mechanistic link between 24-nucleotide small interfering RNAs (24-nt siRNAs) and CHH methylation. The question addressed here is different: **do stress-associated changes in 24-nt siRNA abundance spatially correspond to stress-associated changes in CHH methylation across the genome?**
+The study integrates public small-RNA and DNA-methylation datasets for four environmental stresses: phosphate deprivation, drought, heat, and pathogen challenge. Analyses were performed independently at 100-bp and 500-bp genomic resolution on TAIR10 nuclear chromosomes 1–5.
 
-To our knowledge, this is the first systematic genome-scale comparison of this cross-layer relationship across multiple *Arabidopsis thaliana* environmental stresses. The analysis shows that near-zero genome-wide correlations can coexist with reproducible local correspondence concentrated in strongly remodeled loci. This correspondence is direction-dependent, stress-specific, and structured by genomic context and transposable-element (TE) lineage.
+The central question is whether stress-associated changes in 24-nt siRNA abundance and CHH methylation show a uniform genome-wide relationship, or whether correspondence is concentrated in strongly remodeled genomic regions.
 
-## Environmental stresses
+The principal result is that genome-wide correlations are weak or essentially absent, whereas exact-rank extreme-tail analyses reveal reproducible local correspondence. CHH-gain regions show recurrent enrichment for concordant 24-nt siRNA gains across all four stresses, while CHH-loss correspondence is more stress dependent. Gain-associated correspondence is recurrently enriched in transposable-element-associated regions, and TE superfamily, family, and element-level analyses reveal lineage-specific structure.
 
-The manuscript integrates public small-RNA and methylome datasets for four stresses:
-
-- phosphate deprivation;
-- drought;
-- heat;
-- *Pseudomonas syringae* pv. *tomato* DC3000 challenge.
-
-Because matched small-RNA and methylome measurements from the same biological samples were generally unavailable, the environmental analyses are explicitly treated as **cross-dataset spatial correspondence**, not synchronous molecular coupling or causation.
-
-## Main analyses
-
-Analyses are performed independently in non-overlapping **100-bp and 500-bp TAIR10 nuclear windows**.
-
-The workflow includes genome-wide correspondence, RdDM-related genetic positive controls, exact-rank extreme-tail analyses, baseline matching, gain-versus-loss asymmetry, genomic-context and TE-lineage analyses, sensitivity analyses, and recurrent cross-resolution locus identification.
-
-## Principal result
-
-Genome-wide Δ24-nt-siRNA–ΔCHH correlations are weak or essentially absent under all four environmental stresses. In contrast, extreme CHH-gain regions are reproducibly enriched for local 24-nt siRNA gains across all stresses. CHH-loss/24-nt-loss correspondence is strongly stress dependent: it is robust under heat and drought but largely absent under phosphate deprivation and pathogen treatment. Gain-associated correspondence is recurrently enriched in TE-associated sequence, with additional heterogeneity among TE superfamilies, families, and individual elements.
+Because environmental small-RNA and methylome measurements were generally obtained from different biological samples and, in some cases, different experiments, these analyses are interpreted as cross-dataset spatial correspondence rather than synchronous molecular coupling or causation.
 
 ## Public datasets
 
-- phosphate: small RNA **GSE17741**; methylation **GSE72770**
-- drought: small RNA **GSE26356**; methylation **GSE94075**
-- heat: small RNA **GSE239836**; methylation **GSE139941**
-- pathogen: small RNA **GSE19694**; methylation **GSE128768**
+| Stress | Small-RNA dataset | Methylation dataset |
+|---|---|---|
+| Phosphate deprivation | GSE17741 | GSE72770 |
+| Drought | GSE26356 | GSE94075 |
+| Heat | GSE239836 | GSE139941 |
+| Pathogen challenge | GSE19694 | GSE128768 |
 
-No raw sequencing files are redistributed here. Raw and processed public data remain available from their original repositories.
+Positive-control analyses use independent RdDM-related genetic perturbations, including aly1-2 and drm1 drm2 cmt3 (ddc), to verify sensitivity of the spatial analysis framework.
 
-## Core computational conventions
+No raw sequencing files are redistributed in this repository.
 
-- Reference genome: TAIR10, nuclear chromosomes 1–5.
-- Resolutions: 100 bp and 500 bp.
-- Small-RNA reads: adapter/length preprocessing where required; exact genomic alignment; multimapping abundance fractionally allocated.
-- 24-nt abundance: assigned to genomic windows by alignment midpoint.
-- CHH methylation: aggregated independently into the same genomic windows.
-- Condition changes: stress minus control (`Δ24nt` and `ΔCHH`).
-- Missing methylation values are excluded rather than imputed.
-- Extreme tails are selected by exact rank to prevent tie-induced tail inflation.
-- Environmental-stress results are interpreted as spatial correspondence, not causal estimates.
+## Analysis outline
+
+1. Small-RNA preprocessing and alignment to TAIR10.
+2. Fractional allocation of multimapping small-RNA reads.
+3. Construction of normalized 24-nt siRNA abundance profiles.
+4. CHH methylation summarization in 100-bp and 500-bp windows.
+5. Stress-minus-control change calculation for each molecular layer.
+6. Genome-wide Pearson and Spearman correspondence analyses.
+7. Baseline-matched exact-rank extreme-tail enrichment analyses.
+8. Positive-control analyses using RdDM-related genetic perturbations.
+9. Genomic-context enrichment analysis.
+10. TE superfamily, family, and element-level analyses.
+11. Representative-locus visualization and sensitivity analyses.
 
 ## Repository organization
 
-- `scripts/` – analysis and figure-generation scripts or workflow notes.
-- `metadata/` – dataset/accession maps and metadata.
-- `results/` – compact derived results suitable for version control.
-- `figures/` – manuscript figures and sensitivity figures.
-- `docs/` – workflow and reproducibility notes.
-- `CITATION.cff` – citation metadata.
-- `environment.yml` / `requirements.txt` – software-environment information.
+- `metadata/` dataset accession and design information.
+- `scripts/` analysis scripts and execution notes.
+- `results/summary/` compact derived result tables suitable for version control.
+- `figures/` manuscript figures generated from the final analysis.
+- `docs/` reproducibility and interpretation notes.
 
-## Reproducibility note
+## Important reproducibility conventions
 
-This repository is intended to contain the scripts and compact derived outputs needed to reproduce the analyses reported in the manuscript without redistributing large public raw sequencing datasets. Exact final executed scripts will be added only when verified against the retained analysis workflow; they will not be reconstructed or guessed.
+- Reference genome: TAIR10.
+- Nuclear chromosomes only: chromosomes 1–5.
+- Genomic resolutions: 100 bp and 500 bp.
+- Small-RNA alignments: exact-match, all-alignment strategy with a maximum of 50 reported alignments; multimappers are fractionally allocated.
+- 24-nt abundance is normalized to fractional mapped nuclear 16–27-nt abundance.
+- Environmental comparisons are treated as spatial correspondence across biologically matched datasets rather than causal paired-sample analyses.
+- Extreme-tail analyses use exact rank selection to avoid quantile tie inflation.
+- Baseline matching accounts jointly for control CHH methylation and control 24-nt siRNA abundance.
+- Multiple testing is controlled using the Benjamini–Hochberg false-discovery-rate procedure.
+
+## Software
+
+The final manuscript reports use of Cutadapt 4.7, Bowtie, SAMtools, BEDTools, Python, pandas, NumPy, SciPy, and Matplotlib. Exact versions should be taken from the archived analysis environment or retained command logs where available; versions are not guessed when they cannot be recovered.
 
 ## Citation
 
-Please cite the associated manuscript and repository release. A manuscript-specific archival DOI will be added after the first release is archived.
+Please cite the associated manuscript and the archived release of this repository. A manuscript-specific Zenodo DOI should be added to `CITATION.cff` after the new repository release is archived.
 
 ## Licensing
 
-Code: MIT License. Original sequencing data remain subject to the terms of their source repositories and publications.
+Code is intended for release under the MIT License. Derived documentation and summary metadata may be reused with attribution. Original public sequencing and methylation datasets remain subject to the terms of their source repositories and publications.
