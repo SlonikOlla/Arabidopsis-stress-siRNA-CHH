@@ -1,0 +1,13 @@
+*.fastq
+*.fastq.gz
+*.fq
+*.fq.gz
+*.bam
+*.sam
+*.sra
+*.bedgraph
+*.bw
+*.bigWig
+__pycache__/
+.ipynb_checkpoints/
+.DS_Store
