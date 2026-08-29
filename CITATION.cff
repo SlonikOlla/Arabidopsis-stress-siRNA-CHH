@@ -6,5 +6,6 @@ authors:
   - family-names: "Kovalchuk"
     given-names: "Igor"
 version: "1.0.0"
+doi: "10.5281/zenodo.22165451"
 repository-code: "https://github.com/SlonikOlla/Arabidopsis-stress-siRNA-CHH"
 abstract: "Analysis code, metadata, compact derived results, and reproducibility documentation for a multi-stress genome-scale analysis of spatial correspondence between 24-nt siRNA changes and CHH methylation changes in Arabidopsis thaliana."
