@@ -8,4 +8,4 @@ The final exact-rank extreme-tail analysis selects the upper and lower 1%, 5%, a
 
 Positive-control genetic perturbations are included to demonstrate that the analysis framework detects strong spatial correspondence when present.
 
-The public release should contain only executed analysis scripts and compact derived results. Raw sequencing and source methylation files should be retrieved from their original public repositories using the listed accessions.
+Raw sequencing and source methylation files are not redistributed and should be retrieved from their original public repositories using the listed accessions. The accessible retained project archive does not contain every original workstation script. Accordingly, reconstructed code is never labelled as the historical executed script; reference implementations and recovered-output provenance are identified explicitly in `scripts/README.md` and `results/retained_output_provenance.md`.
