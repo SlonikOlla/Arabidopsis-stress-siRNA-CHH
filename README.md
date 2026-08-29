@@ -2,6 +2,8 @@
 
 Reproducibility repository for the manuscript examining spatial correspondence between stress-associated changes in 24-nucleotide small interfering RNAs (24-nt siRNAs) and CHH DNA methylation in *Arabidopsis thaliana*.
 
+**Archived release DOI:** [10.5281/zenodo.22165451](https://doi.org/10.5281/zenodo.22165451)
+
 ## Study overview
 
 The study integrates public small-RNA and DNA-methylation datasets for four environmental stresses: phosphate deprivation, drought, heat, and pathogen challenge. Analyses were performed independently at 100-bp and 500-bp genomic resolution on TAIR10 nuclear chromosomes 1–5.
@@ -70,7 +72,7 @@ The accessible retained project archive includes final outputs, command logs, so
 
 ## Citation
 
-Please cite the associated manuscript and the archived release of this repository. The Zenodo DOI for the v1.0.0 archive will be added after Zenodo has processed the GitHub release.
+Please cite the associated manuscript and the archived v1.0.0 release. Zenodo DOI: **10.5281/zenodo.22165451**.
 
 ## Licensing
 
