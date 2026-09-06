@@ -1,18 +1,11 @@
 cff-version: 1.2.0
-message: "Please cite the associated manuscript and the versioned Zenodo archive of this repository."
-title: "TE-distant gene networks show stress- and context-dependent 24-nt siRNA–DNA methylation correspondence in Arabidopsis thaliana"
+message: "Please cite the associated manuscript and the archived release of this repository."
+title: "Weak genome-wide correspondence masks stress-specific local 24-nt siRNA–CHH methylation relationships in Arabidopsis"
 type: software
 authors:
   - family-names: "Kovalchuk"
     given-names: "Igor"
-version: "2.0.0"
+version: "1.0.0"
+doi: "10.5281/zenodo.22165451"
 repository-code: "https://github.com/SlonikOlla/Arabidopsis-stress-siRNA-CHH"
-abstract: "Analysis code, metadata, compact processed results, and supplementary data for a multi-stress Arabidopsis analysis of 24-nt siRNA–DNA methylation correspondence at gene-associated regions located away from annotated transposable elements."
-keywords:
-  - Arabidopsis thaliana
-  - 24-nt siRNA
-  - DNA methylation
-  - RNA-directed DNA methylation
-  - heat stress
-  - transposable elements
-license: MIT
+abstract: "Analysis code, metadata, compact derived results, and reproducibility documentation for a multi-stress genome-scale analysis of spatial correspondence between 24-nt siRNA changes and CHH methylation changes in Arabidopsis thaliana."
