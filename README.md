@@ -1,78 +1,65 @@
-# Weak genome-wide correspondence masks stress-specific local 24-nt siRNA–CHH methylation relationships in Arabidopsis
+# TE-distant gene networks show stress- and context-dependent 24-nt siRNA–DNA methylation correspondence in Arabidopsis thaliana
 
-Reproducibility repository for the manuscript examining spatial correspondence between stress-associated changes in 24-nucleotide small interfering RNAs (24-nt siRNAs) and CHH DNA methylation in *Arabidopsis thaliana*.
+Reproducibility repository for the current manuscript analyzing stress-associated spatial correspondence between 24-nucleotide small interfering RNAs (24-nt siRNAs) and DNA methylation at **TE-distant gene-associated regions** in *Arabidopsis thaliana*.
 
-**Archived release DOI:** [10.5281/zenodo.22165451](https://doi.org/10.5281/zenodo.22165451)
+> **Version history:** the archived `v1.0.0` release and Zenodo DOI `10.5281/zenodo.22165451` correspond to an earlier CHH-focused stage of the project. The current `main` branch is being prepared for the expanded TE-distant gene-network analysis and will be archived as a new Zenodo version.
 
 ## Study overview
 
-The study integrates public small-RNA and DNA-methylation datasets for four environmental stresses: phosphate deprivation, drought, heat, and pathogen challenge. Analyses were performed independently at 100-bp and 500-bp genomic resolution on TAIR10 nuclear chromosomes 1–5.
+The analysis integrates independent public small-RNA and whole-genome bisulfite-sequencing datasets for heat, drought, phosphate deficiency, and bacterial pathogen challenge. Analyses are performed at 100-bp and 500-bp resolution across CG, CHG, and CHH methylation contexts.
 
-The central question is whether stress-associated changes in 24-nt siRNA abundance and CHH methylation show a uniform genome-wide relationship, or whether correspondence is concentrated in strongly remodeled genomic regions.
+The current manuscript asks whether stress-associated 24-nt siRNA and DNA-methylation changes show reproducible functional organization at gene-associated genomic regions that are spatially separated from annotated transposable elements. Windows overlapping annotated TEs are removed, and the primary stringent analysis retains windows located at least 1 kb from the nearest annotated TE.
 
-The principal result is that genome-wide correlations are weak or essentially absent, whereas exact-rank extreme-tail analyses reveal reproducible local correspondence. CHH-gain regions show recurrent enrichment for concordant 24-nt siRNA gains across all four stresses, while CHH-loss correspondence is more stress dependent. Gain-associated correspondence is recurrently enriched in transposable-element-associated regions, and TE superfamily, family, and element-level analyses reveal lineage-specific structure.
-
-Because environmental small-RNA and methylome measurements were generally obtained from different biological samples and, in some cases, different experiments, these analyses are interpreted as cross-dataset spatial correspondence rather than synchronous molecular coupling or causation.
+Because the molecular layers originate from independent studies, the analysis tests **cross-study spatial correspondence**, not paired within-sample molecular coupling, temporal ordering, or causality.
 
 ## Public datasets
 
 | Stress | Small-RNA dataset | Methylation dataset |
 |---|---|---|
-| Phosphate deprivation | GSE17741 | GSE72770 |
-| Drought | GSE26356 | GSE94075 |
 | Heat | GSE239836 | GSE139941 |
+| Drought | GSE26356 | GSE94075 |
+| Phosphate deficiency | GSE17741 | GSE72770 |
 | Pathogen challenge | GSE19694 | GSE128768 |
-
-Positive-control analyses use independent RdDM-related genetic perturbations, including aly1-2 and drm1 drm2 cmt3 (ddc), to verify sensitivity of the spatial analysis framework.
 
 No raw sequencing files are redistributed in this repository.
 
-## Analysis outline
+## Current analysis framework
 
-1. Small-RNA preprocessing and alignment to TAIR10.
-2. Fractional allocation of multimapping small-RNA reads.
-3. Construction of normalized 24-nt siRNA abundance profiles.
-4. CHH methylation summarization in 100-bp and 500-bp windows.
-5. Stress-minus-control change calculation for each molecular layer.
-6. Genome-wide Pearson and Spearman correspondence analyses.
-7. Baseline-matched exact-rank extreme-tail enrichment analyses.
-8. Positive-control analyses using RdDM-related genetic perturbations.
-9. Genomic-context enrichment analysis.
-10. TE superfamily, family, and element-level analyses.
-11. Representative-locus and sensitivity analyses.
+1. Quantification of stress-associated 24-nt siRNA and methylation changes in common 100-bp and 500-bp windows.
+2. Separate analysis of CG, CHG, and CHH methylation contexts.
+3. Removal of TE-overlapping windows and primary restriction to windows >=1 kb from the nearest annotated TE.
+4. Separate concordant-gain and concordant-loss analyses.
+5. Joint-tail discovery at 1%, with 5% and 10% sensitivity analyses.
+6. Gene-level GO analysis followed by genomic-window opportunity permutation to control gene length and measurable-window opportunity.
+7. Cross-context recurrence at gene and exact physical-window levels.
+8. Threshold-free window-structure-preserving permutation analysis for targeted heat-response functional systems.
+9. Descriptive gene-level ranking, Araport11 annotation, and cross-stress recurrence analysis.
 
 ## Repository organization
 
-- `metadata/` — dataset accession and design information.
-- `scripts/` — transparent analysis code and execution/provenance notes.
-- `results/` — compact derived summaries and retained-output provenance.
+- `metadata/` — source dataset accessions and design metadata.
+- `scripts/` — exact analysis scripts and provenance notes.
+- `results/` — compact processed tables supporting manuscript results and figures.
+- `supplement/` — supplementary data files.
 - `docs/` — reproducibility and interpretation notes.
 
-Publication figures and the manuscript are intentionally not duplicated in this repository.
+**The manuscript itself is intentionally not included in this repository.**
 
-## Important reproducibility conventions
+## Supplementary data
 
-- Reference genome: TAIR10.
-- Nuclear chromosomes only: chromosomes 1–5.
-- Genomic resolutions: 100 bp and 500 bp.
-- Small-RNA alignments: exact-match, all-alignment strategy with a maximum of 50 reported alignments; multimappers are fractionally allocated.
-- 24-nt abundance is normalized to fractional mapped nuclear 16–27-nt abundance.
-- Environmental comparisons are treated as spatial correspondence across biologically matched datasets rather than causal paired-sample analyses.
-- Extreme-tail analyses use exact rank selection to avoid quantile tie inflation.
-- Baseline matching accounts jointly for control CHH methylation and control 24-nt siRNA abundance.
-- Multiple testing is controlled using the Benjamini–Hochberg false-discovery-rate procedure.
+`Supplementary_Table_S2.xlsx` contains the complete ranked and functionally annotated TE-distant gene-body loci underlying Table 1 and the gene-level physiological interpretation, including support scores, methylation contexts, genomic resolutions, methylation direction, and cross-stress overlap information.
 
-## Software
+## Reproducibility note
 
-The manuscript analysis used Cutadapt 4.7, Bowtie, SAMtools, BEDTools, Python, pandas, NumPy, SciPy, and Matplotlib. Versions that could not be recovered from the retained environment or command logs are intentionally not guessed.
-
-## Code provenance
-
-The accessible retained project archive includes final outputs, command logs, software/mapping parameters, and analysis summaries, but not every original workstation script. Where an original script was unavailable, any transparent reimplementation is explicitly labelled as a reference implementation rather than being presented as the historical executed source. See `scripts/README.md` and `results/retained_output_provenance.md`.
+The final v2 release should contain the exact scripts used for the reported analyses. Reconstructed or approximate replacement scripts should not be represented as historical executed code. Public raw sequencing files should be retrieved from their original repositories using the accessions above rather than committed to GitHub.
 
 ## Citation
 
-Please cite the associated manuscript and the archived v1.0.0 release. Zenodo DOI: **10.5281/zenodo.22165451**.
+Please cite the associated manuscript and the versioned Zenodo archive corresponding to the release used. The current manuscript title is:
+
+**Kovalchuk I. TE-distant gene networks show stress- and context-dependent 24-nt siRNA–DNA methylation correspondence in Arabidopsis thaliana.**
+
+The DOI for the new release will be added after Zenodo archives the v2.0.0 GitHub release.
 
 ## Licensing
 
