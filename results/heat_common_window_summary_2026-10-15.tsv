@@ -1,0 +1,4 @@
+time	n_common_windows	n_site_count_eligible	median_OE_CG	median_OE_CHG	median_OE_CHH	CHH_gt_CG_of_4	CHH_gt_CHG_of_4	CHG_gt_CG_of_4
+6h	235480	218849	1.0358	1.0590	1.1056	4	4	4
+12h	235480	219570	1.0291	1.0387	1.0945	4	4	3
+24h	235480	217696	1.0431	1.0347	1.0970	4	4	2
